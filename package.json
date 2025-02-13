@@ -1,5 +1,5 @@
 {
-  "name": "monorepo-init",
+  "name": "@toktokhan-dev/monorepo-init",
   "private": true,
   "scripts": {
     "build": "turbo build",
@@ -8,6 +8,11 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@toktokhan-dev/cli": "^0.0.11",
+    "@toktokhan-dev/cli-plugin-commit": "^0.0.10",
+    "@toktokhan-dev/eslint-config": "^0.0.2",
+    "@toktokhan-dev/prettier-config": "^0.0.1",
+    "@toktokhan-dev/ts-config": "^0.0.1",
     "prettier": "^3.5.0",
     "turbo": "^2.4.2",
     "typescript": "5.7.3"
