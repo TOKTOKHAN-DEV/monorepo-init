@@ -10,15 +10,15 @@ interface OpenBtnProps {
 }
 
 export const OpenBtn = ({ button, target }: OpenBtnProps) => {
-  const { isOpen, onClose, onOpen } = useDisclosure()
+  const { open, setOpen } = useDisclosure()
   return (
     <>
       {cloneElement(button, {
-        onClick: onOpen,
+        onClick: () => setOpen(true),
       })}
       {cloneElement(target, {
-        isOpen,
-        onClose,
+        open,
+        onOpenChange: (e: { open: boolean }) => setOpen(e.open),
       })}
     </>
   )

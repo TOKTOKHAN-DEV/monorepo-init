@@ -1,9 +1,10 @@
 'use client'
 
-import { Flex, IconButton, Link } from '@chakra-ui/react'
-import { useDisclosure } from '@chakra-ui/react'
+import { useState } from 'react'
 
-import { LogoIcon, MenuIcon } from 'generated/icons/MyIcons'
+import { Button, Flex, Link } from '@chakra-ui/react'
+
+import { LogoIcon } from 'generated/icons/MyIcons'
 
 import { LAYOUT } from '@/constants/layout'
 import { ROUTES } from '@/generated/path/routes'
@@ -19,9 +20,10 @@ interface HomeHeaderProps {
 }
 
 const HomeHeader = ({ variant = 'light' }: HomeHeaderProps) => {
-  const { open, onOpen, onClose } = useDisclosure()
+  const [open, setOpen] = useState(false)
 
   const cssByVariant = HOME_HEADER_VARIANTS[variant]
+  console.log('open', open)
   return (
     <>
       <Flex //
@@ -30,7 +32,7 @@ const HomeHeader = ({ variant = 'light' }: HomeHeaderProps) => {
         alignItems="center"
         justifyContent="space-between"
         position="fixed"
-        zIndex="sticky"
+        zIndex="-1"
         transition="all 0.3s"
         w="100%"
         h={LAYOUT.HEADER.HEIGHT}
@@ -39,19 +41,13 @@ const HomeHeader = ({ variant = 'light' }: HomeHeaderProps) => {
         <Link href={ROUTES.MAIN}>
           <LogoIcon boxSize={'74px'} color={'brand.primary.500'} />
         </Link>
-        {/* <IconButton //
-          size={'xs'}
-          color={cssByVariant.pointColor}
-          icon={<MenuIcon w="24px" h="24px" />}
-          onClick={onOpen}
-          cursor="pointer"
-          bg="transparent"
-          aria-label="btn-toggle-drawer"
-        /> */}
+        <Button variant="outline" size="sm" onClick={() => setOpen(true)}>
+          Open Drawer
+        </Button>
       </Flex>
       <HomeHeaderDrawer
-        isOpen={open}
-        onClose={onClose}
+        open={open}
+        onOpenChange={(e: { open: boolean }) => setOpen(e.open)}
         bodyProps={cssByVariant.drawer}
       />
     </>

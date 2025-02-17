@@ -1,20 +1,28 @@
-import { ChakraProps, DrawerProps, Text } from '@chakra-ui/react'
+import { BoxProps, Button, DrawerRootProps, Text } from '@chakra-ui/react'
 
 import DrawerBasis from '@/components/@Drawer/DrawerBasis'
+import { DrawerActionTrigger, DrawerTitle } from '@/components/ui/drawer'
 
-interface HomeHeaderDrawerProps extends Omit<DrawerProps, 'children'> {
-  bodyProps?: ChakraProps
+interface HomeHeaderDrawerProps extends Omit<DrawerRootProps, 'children'> {
+  bodyProps?: BoxProps
 }
 
 const HomeHeaderDrawer = ({ bodyProps, ...props }: HomeHeaderDrawerProps) => {
   return (
     <DrawerBasis //
-      header={'header'}
+      header={<DrawerTitle>Drawer Title</DrawerTitle>}
       body={<Text>body</Text>}
-      footer={<Text>footer</Text>}
+      footer={
+        <>
+          <DrawerActionTrigger asChild>
+            <Button variant="outline">Cancel</Button>
+          </DrawerActionTrigger>
+          <Button>Save</Button>
+        </>
+      }
       styles={{
-        header: { bg: 'background.basic.1' },
-        content: { bg: 'background.basic.1' },
+        header: { bg: 'white' },
+        content: { bg: 'white' },
         body: { ...bodyProps },
       }}
       {...props}

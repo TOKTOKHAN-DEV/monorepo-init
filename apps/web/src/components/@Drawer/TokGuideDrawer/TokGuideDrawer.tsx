@@ -1,32 +1,33 @@
 'use client'
 
+import { Button, Drawer as ChakraDrawer } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
+
 import {
-  Drawer,
+  DrawerBackdrop,
   DrawerBody,
-  DrawerCloseButton,
+  DrawerCloseTrigger,
   DrawerContent,
-  DrawerOverlay,
-  DrawerProps,
-} from '@chakra-ui/react'
+  DrawerFooter,
+  DrawerHeader,
+  DrawerRoot,
+  DrawerTitle,
+} from '@/components/ui/drawer'
 
 import { TokGuide } from './components/TokGuide'
 
-export const TokGuideDrawer = (props: Partial<DrawerProps>) => {
+export const TokGuideDrawer = (props: Partial<ChakraDrawer.RootProps>) => {
   return (
-    <Drawer
-      size="md"
-      placement="right"
-      isOpen={false}
-      onClose={() => {}}
-      {...props}
-    >
-      <DrawerOverlay />
-      <DrawerContent bg="background.basic.1">
-        <DrawerCloseButton w="40px" h="40px" />
-        <DrawerBody>
-          <TokGuide />
-        </DrawerBody>
+    <DrawerRoot size="md" placement="end" {...props}>
+      <DrawerBackdrop />
+      <DrawerContent>
+        <DrawerCloseTrigger />
+        <DrawerHeader>
+          <DrawerTitle>Drawer Title</DrawerTitle>
+        </DrawerHeader>
+        <DrawerBody>{/* <TokGuide /> */}</DrawerBody>
+        <DrawerFooter />
       </DrawerContent>
-    </Drawer>
+    </DrawerRoot>
   )
 }

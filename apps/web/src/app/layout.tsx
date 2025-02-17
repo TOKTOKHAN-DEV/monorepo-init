@@ -3,11 +3,11 @@ import { ReactNode } from 'react'
 import { Metadata, Viewport } from 'next'
 import { cookies } from 'next/headers'
 
-// import { TokGuideDrawer } from '@/components/@Drawer/TokGuideDrawer'
-// import { SideBtn } from '@/components/@Drawer/TokGuideDrawer/components/SideBtn'
+import { TokGuideDrawer } from '@/components/@Drawer/TokGuideDrawer'
+import { SideBtn } from '@/components/@Drawer/TokGuideDrawer/components/SideBtn'
 import HomeLayout from '@/components/@Layout/HomeLayout'
-// import { OpenBtn } from '@/components/OpenBtn'
-// import ToggleColorModeButton from '@/components/ToggleColorModeButton'
+import { OpenBtn } from '@/components/OpenBtn'
+import ToggleColorModeButton from '@/components/ToggleColorModeButton'
 import { ENV } from '@/configs/env'
 import AppProvider from '@/providers/AppProvider'
 import { ThemeProvider } from '@/providers/ThemeProvider'
@@ -107,10 +107,9 @@ export default async function RootLayout({
       <body suppressHydrationWarning>
         <AppProvider>
           <ThemeProvider>
-            {/* <HomeLayout content={children} /> */}
-            {children}
-            {/* <ToggleColorModeButton /> */}
-            {/* <OpenBtn target={<TokGuideDrawer />} button={<SideBtn />} /> */}
+            <HomeLayout content={children} />
+            <ToggleColorModeButton />
+            <OpenBtn target={<TokGuideDrawer />} button={<SideBtn />} />
           </ThemeProvider>
         </AppProvider>
       </body>

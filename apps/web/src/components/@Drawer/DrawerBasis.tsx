@@ -1,24 +1,26 @@
+'use client'
+
+import { BoxProps, DrawerBodyProps, DrawerRootProps } from '@chakra-ui/react'
+
 import {
-  ChakraProps,
-  Drawer,
+  DrawerBackdrop,
   DrawerBody,
-  DrawerCloseButton,
+  DrawerCloseTrigger,
   DrawerContent,
   DrawerFooter,
   DrawerHeader,
-  DrawerOverlay,
-  DrawerProps,
-} from '@chakra-ui/react'
+  DrawerRoot,
+} from '@/components/ui/drawer'
 
-interface DrawerBasisProps extends Omit<DrawerProps, 'children'> {
+interface DrawerBasisProps extends Omit<DrawerRootProps, 'children'> {
   header?: string | JSX.Element
   body?: string | JSX.Element
   footer?: string | JSX.Element
   styles?: {
-    content?: ChakraProps
-    header?: ChakraProps
-    body?: ChakraProps
-    footer?: ChakraProps
+    content?: BoxProps
+    header?: BoxProps
+    body?: BoxProps
+    footer?: BoxProps
   }
 }
 
@@ -31,19 +33,15 @@ export default function DrawerBasis({
 }: DrawerBasisProps) {
   return (
     <>
-      <Drawer size="sm" placement="right" {...props}>
-        <DrawerOverlay />
-        <DrawerContent bg="background.primary" {...styles?.content}>
-          <DrawerCloseButton //
-            w="40px"
-            h="40px"
-            onClick={props.onClose}
-          />
+      <DrawerRoot placement={'end'} size={'sm'} {...props}>
+        <DrawerBackdrop />
+        <DrawerContent>
+          <DrawerCloseTrigger />
           <DrawerHeader {...styles?.header}>{header}</DrawerHeader>
           <DrawerBody {...styles?.body}>{body}</DrawerBody>
           <DrawerFooter {...styles?.footer}>{footer}</DrawerFooter>
         </DrawerContent>
-      </Drawer>
+      </DrawerRoot>
     </>
   )
 }

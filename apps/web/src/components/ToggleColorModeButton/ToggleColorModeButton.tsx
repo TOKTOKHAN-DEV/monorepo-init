@@ -1,11 +1,11 @@
 'use client'
 
-import { useColorMode } from '@chakra-ui/color-mode'
+import { useColorMode } from '@/components/ui/color-mode'
 
 import { ToggleColorModeButtonView } from './ToggleColorModeButton.view'
 
 const ToggleColorModeButton = () => {
-  const { colorMode, toggleColorMode } = useColorMode()
+  const { toggleColorMode, colorMode } = useColorMode()
   return (
     <ToggleColorModeButtonView
       colorMode={colorMode}
