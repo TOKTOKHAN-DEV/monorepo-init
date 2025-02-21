@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 
-import { StackProps, Tag, Text, VStack } from '@chakra-ui/react'
+import { StackProps, Tag, VStack } from '@chakra-ui/react'
 
 interface SectionProps extends StackProps {
   title: string
@@ -10,7 +10,9 @@ interface SectionProps extends StackProps {
 const Section = ({ title, children }: SectionProps) => {
   return (
     <VStack w={'100%'} ml={'5px'} align={'start'}>
-      <Tag>{title}</Tag>
+      <Tag.Root>
+        <Tag.Label>{title}</Tag.Label>
+      </Tag.Root>
       <VStack w={'100%'} bg={'background.secondary'} borderRadius={'8px'}>
         {children}
       </VStack>

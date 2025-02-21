@@ -1,12 +1,12 @@
-import { Center, ChakraProps, Spinner } from '@chakra-ui/react'
+import { Center, Spinner, SpinnerProps } from '@chakra-ui/react'
 
-function Splash(props: ChakraProps) {
+function Splash(props: SpinnerProps) {
   return (
     <Center w="100vw" h="100vh" bg="gray.100" {...props}>
       <Spinner
-        thickness="4px"
-        speed="0.65s"
-        emptyColor="gray.200"
+        borderWidth="4px"
+        animationDuration="0.65s"
+        css={{ '--spinner-track-color': 'colors.gray.200' }}
         color="primary.500"
         size="xl"
       />

@@ -1,33 +1,26 @@
 import { Ref, forwardRef, memo } from 'react'
 
 import Image from 'next/image'
+import { ImageProps } from 'next/image'
 
-import {
-  Box,
-  ChakraProps,
-  PropsOf,
-  Skeleton,
-  useControllableState,
-} from '@chakra-ui/react'
+import { Box, BoxProps, useControllableState } from '@chakra-ui/react'
 
-export interface ImageAsNextProps
-  extends Omit<ChakraProps, 'fill'>,
-    Pick<
-      PropsOf<typeof Image>,
-      | 'src'
-      | 'alt'
-      | 'sizes'
-      | 'loader'
-      | 'fill'
-      | 'quality'
-      | 'priority'
-      | 'loading'
-      | 'placeholder'
-      | 'blurDataURL'
-      | 'unoptimized'
-      | 'onLoad'
-      | 'onError'
-    > {
+import { Skeleton } from '@/components/ui/skeleton'
+
+export interface ImageAsNextProps extends Omit<BoxProps, 'fill'> {
+  src: ImageProps['src']
+  alt: ImageProps['alt']
+  fill?: boolean
+  loader?: ImageProps['loader']
+  quality?: ImageProps['quality']
+  priority?: ImageProps['priority']
+  loading?: ImageProps['loading']
+  placeholder?: ImageProps['placeholder']
+  blurDataURL?: ImageProps['blurDataURL']
+  unoptimized?: ImageProps['unoptimized']
+  onLoad?: ImageProps['onLoad']
+  onError?: ImageProps['onError']
+  sizes?: ImageProps['sizes']
   isDisabledSkeleton?: boolean
   isLoading?: boolean
 }
@@ -68,7 +61,7 @@ const ImageAsNext = forwardRef(function ImageAsNext(
         position="absolute"
         objectFit="inherit"
         objectPosition="inherit"
-        isLoaded={!isShowSkelton}
+        loading={!isShowSkelton}
       >
         <Image
           ref={ref}

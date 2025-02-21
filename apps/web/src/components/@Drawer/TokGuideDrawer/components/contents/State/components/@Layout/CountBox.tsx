@@ -2,9 +2,6 @@ import { ReactNode } from 'react'
 
 import { Button, HStack, Text, VStack } from '@chakra-ui/react'
 
-import { count } from 'console'
-import { set } from 'lodash'
-
 interface CountBoxProps {
   count: number
   onReset: () => void
@@ -27,9 +24,9 @@ const CountBox = ({
       py={'20px'}
       borderRadius={'8px'}
     >
-      <VStack spacing={'0px'}>
+      <VStack>
         <Text textStyle={'pre-body-01'}>COUNT BOX</Text>
-        <Button variant={'unstyled'} size={'sm'} onClick={onReset}>
+        <Button size={'sm'} onClick={onReset}>
           Reset
         </Button>
       </VStack>

@@ -9,7 +9,7 @@ interface SectionsProps extends StackProps {
 
 const Sections = ({ title, children }: SectionsProps) => {
   return (
-    <VStack align={'start'} w={'100%'} spacing={'15px'}>
+    <VStack align={'start'} w={'100%'}>
       <Text textStyle={'pre-heading-03'}>{title}</Text>
       {children}
     </VStack>

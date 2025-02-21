@@ -2,7 +2,6 @@
 
 import { useSearchParams } from 'next/navigation'
 
-import { useColorMode } from '@chakra-ui/color-mode'
 import { HStack } from '@chakra-ui/react'
 import {
   Apple,
@@ -25,6 +24,7 @@ import {
 } from '@toktokhan-dev/react-web'
 
 import { OauthCallback } from '@/app/social/callback/_source/types'
+import { useColorMode } from '@/components/ui/color-mode'
 import { ENV } from '@/configs/env'
 
 const kakao = new Kakao(ENV.KAKAO_CLIENT_ID)
@@ -59,7 +59,7 @@ export default function SocialButton() {
 
   return (
     <>
-      <HStack mt={'30px'} spacing={4} flexWrap={'wrap'}>
+      <HStack mt={'30px'} flexWrap={'wrap'}>
         <KakaoButton
           colorMode={colorMode}
           onClick={() =>
@@ -122,7 +122,7 @@ export default function SocialButton() {
           }
         />
       </HStack>
-      <HStack mt={'20px'} flexWrap={'wrap'} spacing={4}>
+      <HStack mt={'20px'} flexWrap={'wrap'}>
         <KakaoIconButton
           colorMode={colorMode}
           onClick={() =>

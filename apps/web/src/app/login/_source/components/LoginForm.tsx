@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 
 import { Box, BoxProps, Button, Input } from '@chakra-ui/react'
 
-import FormHelper from '@/components/FormHelper'
+import { Field } from '@/components/ui/field'
 
 import { login } from '../actions/login'
 import useLoginForm from '../hooks/useLoginForm'
@@ -60,43 +60,30 @@ const LoginForm = ({ ...basisProps }: LoginFormProps) => {
 
   return (
     <Box as="form" {...basisProps}>
-      <FormHelper
-        mb="24px"
-        label="회원 아이디"
-        message={{
-          error: errors.id?.message,
-        }}
-        isRequired
-      >
+      <Field label="회원 아이디" required errorText={errors.id?.message}>
         <Input
           {...register('id')}
           autoComplete="off"
           placeholder="이메일 주소"
         />
-      </FormHelper>
-      <FormHelper
-        label="비밀번호"
-        message={{
-          error: errors.password?.message,
-        }}
-        isRequired
-      >
+      </Field>
+
+      <Field label="비밀번호" required errorText={errors.password?.message}>
         <Input
           {...register('password')}
           type="password"
           autoComplete="off"
           placeholder="비밀번호"
         />
-      </FormHelper>
+      </Field>
       <Button
         border="1px solid black"
         type="submit"
         w="100%"
         mt="40px"
-        variant="primary"
         onClick={onSubmit}
-        isLoading={isPending}
-        isDisabled={!isDirty || !isValid}
+        loading={isPending}
+        disabled={!isDirty || !isValid}
       >
         로그인
       </Button>

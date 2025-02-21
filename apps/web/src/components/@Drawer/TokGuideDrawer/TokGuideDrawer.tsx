@@ -1,7 +1,6 @@
 'use client'
 
-import { Button, Drawer as ChakraDrawer } from '@chakra-ui/react'
-import { Box } from '@chakra-ui/react'
+import { Drawer as ChakraDrawer } from '@chakra-ui/react'
 
 import {
   DrawerBackdrop,
@@ -23,9 +22,11 @@ export const TokGuideDrawer = (props: Partial<ChakraDrawer.RootProps>) => {
       <DrawerContent>
         <DrawerCloseTrigger />
         <DrawerHeader>
-          <DrawerTitle>Drawer Title</DrawerTitle>
+          <DrawerTitle>Tok Guide</DrawerTitle>
         </DrawerHeader>
-        <DrawerBody>{/* <TokGuide /> */}</DrawerBody>
+        <DrawerBody>
+          <TokGuide />
+        </DrawerBody>
         <DrawerFooter />
       </DrawerContent>
     </DrawerRoot>

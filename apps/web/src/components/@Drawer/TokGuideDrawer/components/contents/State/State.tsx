@@ -1,5 +1,4 @@
-import React from 'react'
-
+// import React from 'react'
 import { VStack } from '@chakra-ui/react'
 
 import Sections from './components/@Layout/Sections'
@@ -9,7 +8,7 @@ import Storage from './components/Storage'
 
 export const State = () => {
   return (
-    <VStack w={'100%'} spacing={'20px'}>
+    <VStack w={'100%'}>
       <Sections title={'Global State'}>
         <Global />
       </Sections>
