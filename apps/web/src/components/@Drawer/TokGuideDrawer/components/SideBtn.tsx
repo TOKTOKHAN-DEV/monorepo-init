@@ -17,6 +17,9 @@ export const SideBtn = (props: ButtonProps) => {
       minW="0"
       h="70px"
       transform={'translateY(-50%)'}
+      style={{
+        writingMode: 'vertical-rl',
+      }}
       {...props}
     >
       TOK GUIDE

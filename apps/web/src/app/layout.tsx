@@ -7,10 +7,9 @@ import { TokGuideDrawer } from '@/components/@Drawer/TokGuideDrawer'
 import { SideBtn } from '@/components/@Drawer/TokGuideDrawer/components/SideBtn'
 import HomeLayout from '@/components/@Layout/HomeLayout'
 import { OpenBtn } from '@/components/OpenBtn'
-import ToggleColorModeButton from '@/components/ToggleColorModeButton'
+import { Provider as ThemeProvider } from '@/components/ui/provider'
 import { ENV } from '@/configs/env'
 import AppProvider from '@/providers/AppProvider'
-import { ThemeProvider } from '@/providers/ThemeProvider'
 
 // import { GoogleAnalytics } from "@next/third-parties/google";
 import '../../public/fonts/pretendard/css/pretendardvariable-dynamic-subset.css'
@@ -108,7 +107,6 @@ export default async function RootLayout({
         <AppProvider>
           <ThemeProvider>
             <HomeLayout content={children} />
-            <ToggleColorModeButton />
             <OpenBtn target={<TokGuideDrawer />} button={<SideBtn />} />
           </ThemeProvider>
         </AppProvider>

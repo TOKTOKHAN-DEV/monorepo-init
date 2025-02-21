@@ -2,10 +2,11 @@
 
 import { useState } from 'react'
 
-import { Button, Flex, Link } from '@chakra-ui/react'
+import { Button, Flex, HStack, Link } from '@chakra-ui/react'
 
 import { LogoIcon } from 'generated/icons/MyIcons'
 
+import { ColorModeButton } from '@/components/ui/color-mode'
 import { LAYOUT } from '@/constants/layout'
 import { ROUTES } from '@/generated/path/routes'
 
@@ -41,9 +42,12 @@ const HomeHeader = ({ variant = 'light' }: HomeHeaderProps) => {
         <Link href={ROUTES.MAIN}>
           <LogoIcon boxSize={'74px'} color={'brand.primary.500'} />
         </Link>
-        <Button variant="outline" size="sm" onClick={() => setOpen(true)}>
-          Open Drawer
-        </Button>
+        <HStack>
+          <ColorModeButton />
+          <Button variant="outline" size="sm" onClick={() => setOpen(true)}>
+            Open Drawer
+          </Button>
+        </HStack>
       </Flex>
       <HomeHeaderDrawer
         open={open}
